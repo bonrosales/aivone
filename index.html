@@ -791,6 +791,73 @@ body::after{
 </style>
 </head>
 <body>
+<!-- ══════ BOOT LOADER ══════ -->
+<div id="boot-loader" style="
+  position:fixed;inset:0;z-index:99999;
+  background:#02080e;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Share Tech Mono',monospace;
+  overflow:hidden;
+">
+  <!-- Scanline on loader -->
+  <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,255,231,.025) 3px,rgba(0,255,231,.025) 4px);pointer-events:none;z-index:2"></div>
+  <!-- Corner decorations -->
+  <div style="position:absolute;top:18px;left:18px;width:28px;height:28px;border-top:2px solid rgba(0,255,231,.5);border-left:2px solid rgba(0,255,231,.5)"></div>
+  <div style="position:absolute;top:18px;right:18px;width:28px;height:28px;border-top:2px solid rgba(0,255,231,.5);border-right:2px solid rgba(0,255,231,.5)"></div>
+  <div style="position:absolute;bottom:18px;left:18px;width:28px;height:28px;border-bottom:2px solid rgba(0,255,231,.5);border-left:2px solid rgba(0,255,231,.5)"></div>
+  <div style="position:absolute;bottom:18px;right:18px;width:28px;height:28px;border-bottom:2px solid rgba(0,255,231,.5);border-right:2px solid rgba(0,255,231,.5)"></div>
+  <!-- Top status bar -->
+  <div style="position:absolute;top:14px;left:50%;transform:translateX(-50%);font-size:.58rem;color:rgba(0,255,231,.5);letter-spacing:.3em;white-space:nowrap">
+    AIV1 // SECURE BOOT SEQUENCE
+  </div>
+  <!-- Bottom classification -->
+  <div style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:.52rem;color:rgba(255,0,60,.5);letter-spacing:.25em;white-space:nowrap">
+    CLASSIFICATION: AIV1 TOP SECRET // AUTHORIZED ACCESS ONLY
+  </div>
+
+  <!-- Main content -->
+  <div style="position:relative;z-index:3;width:min(580px,90vw);text-align:left;">
+    <!-- Logo -->
+    <div style="text-align:center;margin-bottom:1.8rem">
+      <div style="font-family:'Orbitron',sans-serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:900;color:#00ffe7;text-shadow:0 0 40px rgba(0,255,231,.6),0 0 80px rgba(0,255,231,.3);letter-spacing:.1em">
+        AIV<span style="color:#ff003c">1</span>
+      </div>
+      <div style="font-size:.58rem;color:rgba(0,255,231,.45);letter-spacing:.4em;margin-top:.3rem">AUTONOMOUS INTELLIGENCE VISION ONE</div>
+    </div>
+
+    <!-- Terminal window -->
+    <div style="border:1px solid rgba(0,255,231,.2);background:rgba(0,0,0,.6);backdrop-filter:blur(12px);">
+      <!-- Terminal title bar -->
+      <div style="padding:.45rem .85rem;border-bottom:1px solid rgba(0,255,231,.12);display:flex;align-items:center;gap:.6rem;background:rgba(0,255,231,.04)">
+        <div style="width:9px;height:9px;border-radius:50%;background:#ff003c;box-shadow:0 0 6px #ff003c"></div>
+        <div style="width:9px;height:9px;border-radius:50%;background:#ff9500;box-shadow:0 0 6px #ff9500"></div>
+        <div style="width:9px;height:9px;border-radius:50%;background:#00ff66;box-shadow:0 0 6px #00ff66"></div>
+        <span style="flex:1;text-align:center;font-size:.6rem;color:rgba(0,255,231,.4);letter-spacing:.15em">TERMINAL — ROOT@AIV1</span>
+      </div>
+      <!-- Terminal body -->
+      <div id="boot-terminal" style="padding:.9rem 1rem;min-height:160px;font-size:.72rem;line-height:1.85;color:#b0f0e8;overflow:hidden"></div>
+    </div>
+
+    <!-- Progress bar -->
+    <div style="margin-top:1rem">
+      <div style="display:flex;justify-content:space-between;font-size:.58rem;color:rgba(0,255,231,.45);margin-bottom:.35rem">
+        <span id="boot-stage-label">INITIALIZING...</span>
+        <span id="boot-pct">0%</span>
+      </div>
+      <div style="height:3px;background:rgba(255,255,255,.06);overflow:hidden;position:relative">
+        <div id="boot-bar" style="height:100%;width:0%;background:linear-gradient(90deg,#7b2fff,#00ffe7,#00ffe7);transition:width .15s linear;box-shadow:0 0 12px rgba(0,255,231,.8)"></div>
+      </div>
+    </div>
+
+    <!-- Hex grid decoration -->
+    <div style="display:flex;justify-content:space-between;margin-top:.8rem;font-size:.52rem;color:rgba(0,255,231,.18);letter-spacing:.08em">
+      <span id="boot-hex1">0x0000</span>
+      <span id="boot-hex2">◈ SCANNING</span>
+      <span id="boot-hex3">0x0000</span>
+    </div>
+  </div>
+</div>
+
 <!-- SCROLL PROGRESS -->
 <div id="scroll-progress"></div>
 
@@ -816,16 +883,16 @@ body::after{
       <div class="id-face id-front">
         <div class="id-content">
           <div class="id-header-row">
-            <div class="id-org" id="hero-org-el">AUTONOMOUS INTELLIGENCE DIVISION</div>
-            <div class="id-clearance" id="hero-clearance-el">TOP SECRET</div>
+            <div class="id-org" id="hero-org-el">AUTONOMOUS INTELLIGENCE VISION ONE</div>
+            <div class="id-clearance" id="hero-clearance-el">AIV1 TOP SECRET</div>
           </div>
           <div class="id-middle-row">
             <div class="id-avatar" id="hero-avatar-el">🤖</div>
             <div class="id-info">
-              <div class="id-name" id="hero-name-el">AIV ONE</div>
-              <div class="id-title-line" id="hero-title-line-el">Next-Gen Security Platform</div>
+              <div class="id-name" id="hero-name-el">AI v1</div>
+              <div class="id-title-line" id="hero-title-line-el">Next Generation Virtual</div>
               <div class="id-badge-row">
-                <span class="id-chip chip-cyan" id="hero-chip1">AI-Powered</span>
+                <span class="id-chip chip-cyan" id="hero-chip1">AIv1-Powered</span>
                 <span class="id-chip chip-red" id="hero-chip2">Zero-Day Ready</span>
                 <span class="id-chip chip-purple" id="hero-chip3">Quantum Safe</span>
               </div>
@@ -836,7 +903,7 @@ body::after{
               <div class="id-barcode" id="id-barcode-el"></div>
               <div id="id-barcode-url-display" style="font-family:'Share Tech Mono',monospace;font-size:.44rem;color:var(--dim);margin-top:.12rem;letter-spacing:.04em;max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></div>
             </div>
-            <div class="id-serial" id="hero-serial-el">ISSUED: 2025 · UID-7749</div>
+            <div class="id-serial" id="hero-serial-el">ISSUED: 2025 · UID-7124</div>
           </div>
         </div>
       </div>
@@ -849,9 +916,9 @@ body::after{
           <div id="id-qr-wrap" style="display:flex;justify-content:center;margin:.25rem 0">
             <canvas id="id-qr-canvas" width="72" height="72" style="border:1px solid rgba(0,255,231,.25);background:#fff;image-rendering:pixelated"></canvas>
           </div>
-          <div class="id-note" id="hero-sub-el">Autonomous Intelligence. Vigilant Defense. Zero Compromise.</div>
+          <div class="id-note" id="hero-sub-el">Autonomous Intelligence Vision One. Built for the Operator.</div>
           <div style="display:flex;gap:.5rem;justify-content:center;margin-top:.35rem">
-            <span class="id-chip chip-cyan" id="hero-back-chip1">v4.0</span>
+            <span class="id-chip chip-cyan" id="hero-back-chip1">v1</span>
             <span class="id-chip chip-purple" id="hero-back-chip2">CLASSIFIED</span>
           </div>
         </div>
@@ -860,7 +927,7 @@ body::after{
   </div>
 
   <p class="flip-hint">[ HOVER TO TILT · CLICK TO FLIP ]</p>
-  <p class="hero-tagline" id="hero-tagline-el">// NEXT-GEN AI SECURITY PLATFORM //</p>
+  <p class="hero-tagline" id="hero-tagline-el">// NEXT GENERATION VIRTUAL INTELLIGENCE //</p>
   <div class="hero-cta">
     <button class="btn" id="hero-btn1" onclick="goTo('features')">Explore System</button>
     <button class="btn red" onclick="openAdminLogin()">Admin Access</button>
@@ -901,7 +968,7 @@ body::after{
       <div class="sec-admin"><span class="sec-admin-lbl">// SKILLS SECTION</span></div>
       <div class="section-label">// Proficiency Matrix</div>
       <h2 class="section-title glitch" data-text="SKILL LEVELS">SKILL LEVELS</h2>
-      <p class="section-subtitle">Quantified competency across offensive and defensive domains.</p>
+      <p class="section-subtitle">Measured proficiency across the core domains of computer operations, support, and systems management.</p>
       <div class="skills-layout">
         <div id="skill-bars"></div>
         <div>
@@ -916,7 +983,7 @@ body::after{
       <div class="sec-admin"><span class="sec-admin-lbl">// FEATURES SECTION</span></div>
       <div class="section-label">// Core Systems</div>
       <h2 class="section-title glitch" data-text="CAPABILITIES">CAPABILITIES</h2>
-      <p class="section-subtitle">Six pillars of autonomous defense engineered for next-generation cyber warfare.</p>
+      <p class="section-subtitle">Six core competencies of a seasoned computer operator — from hardware to cloud, built for reliability and speed.</p>
       <div class="section-grid" id="features-grid"></div>
     </div>
   </section>
@@ -950,7 +1017,7 @@ body::after{
     <div class="footer-grid">
       <div>
         <div class="footer-logo"><span style="color:var(--acc)">AIV</span><span style="color:var(--acc2)">1</span></div>
-        <p id="footer-tagline" style="color:var(--dim);font-size:.84rem;line-height:1.75;max-width:215px">Autonomous Intelligence. Vigilant Defense. Zero Compromise.</p>
+        <p id="footer-tagline" style="color:var(--dim);font-size:.84rem;line-height:1.75;max-width:215px">Autonomous Intelligence Vision One. Built for the Operator.</p>
         <div class="footer-social" id="footer-social"></div>
       </div>
       <div><div class="footer-col-title">Navigate</div><ul class="footer-links" id="footer-nav-links"></ul></div>
@@ -958,7 +1025,7 @@ body::after{
     </div>
     <div class="footer-bottom">
       <span class="footer-copy" id="footer-copy-text">© 2025 AIV1. All rights reserved.</span>
-      <span style="font-family:'Share Tech Mono',monospace;font-size:.61rem;color:var(--dim)">v6.0 // GLASS EDITION</span>
+      <span style="font-family:'Share Tech Mono',monospace;font-size:.61rem;color:var(--dim)">version 1</span>
     </div>
   </div>
 </footer>
@@ -1249,7 +1316,7 @@ body::after{
           <div class="atab" onclick="switchTab('footer','soc',this)">Social</div>
           <div class="atab" onclick="switchTab('footer','copy',this)">Copyright</div>
         </div>
-        <div class="atp active" id="footer-tab-brand"><div class="adc"><div class="form-group"><label class="form-label">Tagline</label><input class="form-input" id="admin-footer-tagline" value="Autonomous Intelligence. Vigilant Defense. Zero Compromise." oninput="document.getElementById('footer-tagline').textContent=this.value"></div></div></div>
+        <div class="atp active" id="footer-tab-brand"><div class="adc"><div class="form-group"><label class="form-label">Tagline</label><input class="form-input" id="admin-footer-tagline" value="Autonomous Intelligence Vision One. Built for the Operator." oninput="document.getElementById('footer-tagline').textContent=this.value"></div></div></div>
         <div class="atp" id="footer-tab-nav"><div class="adc"><div style="margin-bottom:.7rem"><button class="btn sm" onclick="openFLinkModal('nav')">+ Add</button></div><div id="admin-footer-nav-list"></div></div></div>
         <div class="atp" id="footer-tab-legal"><div class="adc"><div style="margin-bottom:.7rem"><button class="btn sm" onclick="openFLinkModal('legal')">+ Add</button></div><div id="admin-footer-legal-list"></div></div></div>
         <div class="atp" id="footer-tab-soc"><div id="social-admin-footer"></div><div style="margin-top:.8rem"><button class="btn sm" onclick="addSocial()">+ Add Social</button></div></div>
@@ -1542,16 +1609,16 @@ const S={
   editingFlinkId:null,editingFlinkGroup:null,
   nextId:4,soundEnabled:true,
   hero:{
-    title:'AIV ONE',
-    titleLine:'Next-Gen Security Platform',
+    title:'AI v1',
+    titleLine:'Next Generation Virtual',
     avatar:'🤖',
-    tagline:'// NEXT-GEN AI SECURITY PLATFORM //',
-    sub:'Autonomous Intelligence. Vigilant Defense. Zero Compromise.',
-    b1:'AI-Powered',b2:'Zero-Day Ready',b3:'Quantum Safe',
-    backChip1:'v4.0',backChip2:'CLASSIFIED',
-    org:'AUTONOMOUS INTELLIGENCE DIVISION',
-    clearance:'TOP SECRET',
-    serial:'ISSUED: 2025 · UID-7749',
+    tagline:'// NEXT GENERATION VIRTUAL INTELLIGENCE //',
+    sub:'Autonomous Intelligence Vision One. Built for the Operator.',
+    b1:'AIv1-Powered',b2:'Zero-Day Ready',b3:'Quantum Safe',
+    backChip1:'v1',backChip2:'CLASSIFIED',
+    org:'AUTONOMOUS INTELLIGENCE VISION ONE',
+    clearance:'AIV1 TOP SECRET',
+    serial:'ISSUED: 2025 · UID-7124',
     barcodeUrl:'',
     qrUrl:'',
     cta1:'Explore System',cta1t:'features'
@@ -1567,24 +1634,24 @@ const S={
   footerLegal:[{id:'fl1',label:'Privacy Policy',url:'#'},{id:'fl2',label:'Terms of Service',url:'#'},{id:'fl3',label:'Security Disclosure',url:'#'}],
   socialLinks:[{id:'tw',icon:'𝕏',label:'Twitter',url:'#'},{id:'gh',icon:'⌨',label:'GitHub',url:'#'},{id:'li',icon:'in',label:'LinkedIn',url:'#'},{id:'dc',icon:'◎',label:'Discord',url:'#'}],
   skills:[
-    {id:'sk1',name:'Threat Detection',pct:94,type:'bar',color:'#00ffe7'},
-    {id:'sk2',name:'Penetration Testing',pct:88,type:'bar',color:'#00ffe7'},
-    {id:'sk3',name:'Malware Analysis',pct:91,type:'bar',color:'#00ffe7'},
-    {id:'sk4',name:'Network Defense',pct:85,type:'bar',color:'#ff003c'},
-    {id:'sk5',name:'Incident Response',pct:97,type:'bar',color:'#ff003c'},
-    {id:'sk6',name:'Social Eng. Defense',pct:79,type:'bar',color:'#ff003c'},
+    {id:'sk1',name:'Hardware & Components',pct:95,type:'bar',color:'#00ffe7'},
+    {id:'sk2',name:'Operating Systems',pct:92,type:'bar',color:'#00ffe7'},
+    {id:'sk3',name:'Network & Connectivity',pct:88,type:'bar',color:'#00ffe7'},
+    {id:'sk4',name:'Software Troubleshooting',pct:91,type:'bar',color:'#ff003c'},
+    {id:'sk5',name:'Data Management',pct:87,type:'bar',color:'#ff003c'},
+    {id:'sk6',name:'System Maintenance',pct:94,type:'bar',color:'#ff003c'},
   ],
   pies:[
-    {id:'p1',name:'Offensive',pct:87,color:'#00ffe7'},
-    {id:'p2',name:'Defensive',pct:94,color:'#ff003c'},
-    {id:'p3',name:'Cloud',pct:76,color:'#7b2fff'},
-    {id:'p4',name:'AI/ML Sec',pct:82,color:'#ff9500'},
+    {id:'p1',name:'Windows',pct:95,color:'#00ffe7'},
+    {id:'p2',name:'Linux',pct:82,color:'#ff003c'},
+    {id:'p3',name:'Networking',pct:88,color:'#7b2fff'},
+    {id:'p4',name:'Cloud Ops',pct:79,color:'#ff9500'},
   ],
   stats:[
-    {id:'s1',value:'99.97',label:'% Uptime',color:'acc'},
-    {id:'s2',value:'1.24M',label:'Threats Blocked',color:'acc2'},
-    {id:'s3',value:'3,200',label:'Active Clients',color:'acc3'},
-    {id:'s4',value:'0.002',label:'ms Response',color:'acc4'},
+    {id:'s1',value:'99.9',label:'% System Uptime',color:'acc'},
+    {id:'s2',value:'2,400+',label:'Tasks Resolved',color:'acc2'},
+    {id:'s3',value:'15+',label:'Years Experience',color:'acc3'},
+    {id:'s4',value:'<1min',label:'Avg Response Time',color:'acc4'},
   ],
 };
 
@@ -1814,7 +1881,10 @@ function renderPG(gid,posts){
   if(!posts.length){g.innerHTML='<p style="color:var(--dim);padding:1rem">No posts yet.</p>';return;}
   const reacted=getR();
   posts.forEach(p=>{
-    const dateObj=new Date(p.date);const dateStr=dateObj.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});const timeStr=p.time||'00:00';
+    const dateObj=new Date(p.date);const dateStr=dateObj.toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});
+    // Convert stored 24h time to 12h format
+    function to12h(t){if(!t)return'12:00 AM';const[hh,mm]=t.split(':').map(Number);const ampm=hh<12?'AM':'PM';const h=hh%12||12;return `${h}:${String(mm).padStart(2,'0')} ${ampm}`;}
+    const timeStr=to12h(p.time);
     const r=reacted.includes(p.id);const card=document.createElement('div');card.className='post-card';
     card.innerHTML=`<div class="post-img">${p.icon}</div>
     <div class="post-body"><div class="post-meta">📅 ${dateStr} &nbsp;🕐 ${timeStr}</div><div class="post-title">${p.title}</div><p class="post-excerpt">${p.excerpt}</p></div>
@@ -1940,12 +2010,12 @@ function updateAdminBarcodePreview(){
    FEATURE CARDS
 ═══════════════════════════════════════════ */
 const featureCards=[
-  {id:'fc1',icon:'🛡️',title:'Threat Intelligence',text:'Real-time autonomous threat detection powered by adaptive neural networks.'},
-  {id:'fc2',icon:'🤖',title:'AI Autonomy',text:'Self-healing infrastructure with autonomous incident response 24/7.'},
-  {id:'fc3',icon:'🔐',title:'Quantum Encryption',text:'Military-grade quantum-resistant encryption for all data at rest and in transit.'},
-  {id:'fc4',icon:'📡',title:'Live Recon',text:'Continuous network reconnaissance with behavioral analytics.'},
-  {id:'fc5',icon:'⚔️',title:'Adversarial Sim',text:'AI-powered red-team simulations that think like real attackers.'},
-  {id:'fc6',icon:'📋',title:'Compliance Engine',text:'Automated compliance for ISO 27001, SOC2, GDPR with zero overhead.'},
+  {id:'fc1',icon:'🖥️',title:'Hardware Mastery',text:'Expert-level diagnosis and repair of desktops, laptops, servers, and peripheral devices across all major brands.'},
+  {id:'fc2',icon:'⚙️',title:'OS Administration',text:'Full lifecycle management of Windows, Linux, and macOS environments including installation, configuration, and updates.'},
+  {id:'fc3',icon:'🌐',title:'Network Operations',text:'Setup, monitoring, and maintenance of LAN/WAN networks, routers, switches, and wireless access points.'},
+  {id:'fc4',icon:'🔧',title:'System Troubleshooting',text:'Rapid diagnosis and resolution of software crashes, driver conflicts, boot failures, and performance bottlenecks.'},
+  {id:'fc5',icon:'💾',title:'Data & Backup',text:'Structured data management, automated backup solutions, and disaster recovery procedures to ensure zero data loss.'},
+  {id:'fc6',icon:'🛡️',title:'Security & Compliance',text:'Antivirus deployment, patch management, user access control, and endpoint security hardening for safe operations.'},
 ];
 function renderFeatureCardsAdmin(){const c=document.getElementById('feature-cards-list');if(!c)return;c.innerHTML='';featureCards.forEach((fc,i)=>{const row=document.createElement('div');row.style.cssText='padding:.55rem .8rem;margin-bottom:.38rem';row.innerHTML=`<div style="display:flex;align-items:center;gap:.45rem;flex-wrap:wrap"><span style="font-size:1.1rem">${fc.icon}</span><span style="flex:1;font-size:.84rem;color:var(--txt)">${fc.title}</span><div style="display:flex;gap:.25rem"><button class="ab" onclick="moveFCard(${i},-1)">↑</button><button class="ab" onclick="moveFCard(${i},1)">↓</button><button class="ab" onclick="editFCard('${fc.id}')">Edit</button><button class="ab danger" onclick="cd(()=>deleteFCard('${fc.id}'),'Delete?')">Del</button></div></div>`;c.appendChild(row);addHov(row);});}
 function moveFCard(i,dir){const t=i+dir;if(t<0||t>=featureCards.length)return;[featureCards[i],featureCards[t]]=[featureCards[t],featureCards[i]];renderFeatureCardsAdmin();renderFeatureGrid();}
@@ -2236,6 +2306,115 @@ addNewInit();
 updateIDCard();
 buildThemeQuickMenu();
 updateScrollProgress();
+
+/* ═══════════════════════════════════════════
+   WELCOME VOICE — Web Speech API
+═══════════════════════════════════════════ */
+function speakWelcome(){
+  if(!window.speechSynthesis)return;
+  const msg=new SpeechSynthesisUtterance('Welcome to A.I.V. One. System online. All modules operational.');
+  msg.rate=0.88;msg.pitch=0.75;msg.volume=0.7;
+  // Prefer a deep/neutral English voice
+  const voices=speechSynthesis.getVoices();
+  const pref=voices.find(v=>v.lang.startsWith('en')&&(
+    v.name.toLowerCase().includes('male')||
+    v.name.toLowerCase().includes('david')||
+    v.name.toLowerCase().includes('mark')||
+    v.name.toLowerCase().includes('daniel')
+  ));
+  if(pref)msg.voice=pref;
+  speechSynthesis.speak(msg);
+}
+// Pre-load voices list (Chrome requires a trigger)
+if(window.speechSynthesis){
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+}
+
+/* ═══════════════════════════════════════════
+   BOOT LOADER ENGINE
+═══════════════════════════════════════════ */
+(function initBootLoader(){
+  const loader=document.getElementById('boot-loader');
+  const terminal=document.getElementById('boot-terminal');
+  const bar=document.getElementById('boot-bar');
+  const pctEl=document.getElementById('boot-pct');
+  const stageEl=document.getElementById('boot-stage-label');
+  const hex1=document.getElementById('boot-hex1');
+  const hex2=document.getElementById('boot-hex2');
+  const hex3=document.getElementById('boot-hex3');
+  if(!loader||!terminal)return;
+
+  const hexChars='0123456789ABCDEF';
+  function randHex(n=8){let s='0x';for(let i=0;i<n;i++)s+=hexChars[Math.floor(Math.random()*16)];return s;}
+
+  // Hex counter animation
+  let hexTimer=setInterval(()=>{
+    if(hex1)hex1.textContent=randHex(4);
+    if(hex3)hex3.textContent=randHex(4);
+    const stages=['◈ SCANNING','◈ PARSING','◈ DECODING','◈ VERIFYING','◈ MAPPING','◈ INDEXING'];
+    if(hex2)hex2.textContent=stages[Math.floor(Math.random()*stages.length)];
+  },120);
+
+  const bootLines=[
+    {text:'> BIOS POST CHECK...',delay:0,stage:'BIOS CHECK',pct:4},
+    {text:'  [OK] Memory integrity: <span style="color:#00ff66">PASS</span>  [ 16384 MB DDR5 ]',delay:280,stage:'MEMORY CHECK',pct:9},
+    {text:'  [OK] CPU cores: <span style="color:#00ff66">8 × 3.8GHz</span>  Hyperthreading <span style="color:#00ff66">ENABLED</span>',delay:520,stage:'CPU VERIFY',pct:14},
+    {text:'> Mounting encrypted volumes...',delay:820,stage:'MOUNT VOLUMES',pct:19},
+    {text:'  [OK] /dev/sda1 → <span style="color:#00ffe7">/boot</span>  ext4  <span style="color:#00ff66">CLEAN</span>',delay:1020,stage:'FILESYSTEM',pct:23},
+    {text:'  [OK] /dev/sdb1 → <span style="color:#00ffe7">/secure</span>  AES-256  <span style="color:#00ff66">SEALED</span>',delay:1200,stage:'ENCRYPTION',pct:28},
+    {text:'> Initializing kernel modules...',delay:1480,stage:'KERNEL INIT',pct:33},
+    {text:'  [OK] net_core  →  <span style="color:#00ff66">loaded</span>',delay:1640,stage:'NETWORK MODULE',pct:37},
+    {text:'  [OK] firewall  →  <span style="color:#00ff66">active</span>  rules: <span style="color:#00ffe7">247</span>',delay:1800,stage:'FIREWALL',pct:41},
+    {text:'  [OK] intrusion_detect  →  <span style="color:#00ff66">armed</span>',delay:1960,stage:'IDS MODULE',pct:45},
+    {text:'> Authenticating operator credentials...',delay:2240,stage:'AUTH CHECK',pct:51},
+    {text:'  [!!] Scanning biometric signature...',delay:2440,stage:'BIOMETRIC SCAN',pct:55},
+    {text:'  [OK] Identity confirmed: <span style="color:#00ffe7">OPERATOR CLASS-A</span>',delay:2700,stage:'IDENTITY OK',pct:60},
+    {text:'> Loading AIV1 core services...',delay:2960,stage:'CORE SERVICES',pct:65},
+    {text:'  [OK] ai_inference_engine  →  <span style="color:#00ff66">online</span>  v1.0',delay:3140,stage:'AI ENGINE',pct:70},
+    {text:'  [OK] threat_monitor  →  <span style="color:#00ff66">active</span>  sensors: <span style="color:#00ffe7">ALL CLEAR</span>',delay:3320,stage:'THREAT MONITOR',pct:75},
+    {text:'  [OK] data_pipeline  →  <span style="color:#00ff66">streaming</span>',delay:3480,stage:'DATA PIPELINE',pct:79},
+    {text:'> Running final integrity sweep...',delay:3700,stage:'INTEGRITY SWEEP',pct:84},
+    {text:'  [OK] Checksum: <span style="color:#00ffe7">'+randHex(8)+'</span>  <span style="color:#00ff66">VERIFIED</span>',delay:3920,stage:'CHECKSUM',pct:89},
+    {text:'  [OK] Zero anomalies detected. Threat level: <span style="color:#00ff66">NOMINAL</span>',delay:4100,stage:'ALL CLEAR',pct:94},
+    {text:'',delay:4320,stage:'LAUNCHING UI',pct:97},
+    {text:'<span style="color:#00ffe7;font-weight:700">▶ ACCESS GRANTED — WELCOME, OPERATOR</span>',delay:4480,stage:'READY',pct:100},
+  ];
+
+  bootLines.forEach(({text,delay,stage,pct})=>{
+    setTimeout(()=>{
+      if(stageEl)stageEl.textContent=stage;
+      if(bar)bar.style.width=pct+'%';
+      if(pctEl)pctEl.textContent=pct+'%';
+      if(text!==undefined){
+        const line=document.createElement('div');
+        line.innerHTML=text;
+        line.style.cssText='opacity:0;transform:translateX(-6px);transition:opacity .18s,transform .18s';
+        terminal.appendChild(line);
+        requestAnimationFrame(()=>requestAnimationFrame(()=>{line.style.opacity='1';line.style.transform='translateX(0)'}));
+        // Keep scroll to bottom
+        terminal.scrollTop=terminal.scrollHeight;
+      }
+    },delay);
+  });
+
+  // Dismiss loader after all lines + small pause
+  const totalTime=bootLines[bootLines.length-1].delay+700;
+  setTimeout(()=>{
+    clearInterval(hexTimer);
+    loader.style.transition='opacity .7s ease';
+    loader.style.opacity='0';
+    setTimeout(()=>{
+      loader.style.display='none';
+      document.body.style.overflow='';
+      // Trigger welcome voice after loader fades
+      speakWelcome();
+    },700);
+  },totalTime);
+
+  // Lock scroll during boot
+  document.body.style.overflow='hidden';
+})();
 
 setTimeout(()=>{document.querySelectorAll('.section').forEach(el=>sectionObserver.observe(el));},100);
 document.querySelectorAll('button,a,.card,.post-card').forEach(addHov);
